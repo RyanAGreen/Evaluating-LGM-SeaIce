@@ -13,11 +13,11 @@ import matplotlib.path as mpath
 import matplotlib.lines as mlines
 
 # load in PMIP3 data
-CNRM_3 = xr.open_dataset('sic_OIclim_CNRM-CM5_lgm_r1i1p1_180001-199912-climregrid.nc',decode_times=False)
-FGOALS_3 = xr.open_dataset('sic_OIclim_FGOALS-g2_lgm_r1i1p1_055001-064912-climregrid.nc',decode_times=False)
-IPSL_3 = xr.open_dataset('sic_OIclim_IPSL-CM5A-LR_lgm_r1i1p1_260101-280012-climregrid.nc',decode_times=False)
-MIROC_3 = xr.open_dataset('sic_OIclim_MIROC-ESM_lgm_r1i1p1_460001-469912-climregrid.nc',decode_times=False)
-MRI_3 = xr.open_dataset('sic_OIclim_MRI-CGCM3_lgm_r1i1p1_250101-260012-climregrid.nc',decode_times=False)
+CNRM_3 = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/sic_OIclim_CNRM-CM5_lgm_r1i1p1_180001-199912-climregrid.nc',decode_times=False)
+FGOALS_3 = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/sic_OIclim_FGOALS-g2_lgm_r1i1p1_055001-064912-climregrid.nc',decode_times=False)
+IPSL_3 = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/sic_OIclim_IPSL-CM5A-LR_lgm_r1i1p1_260101-280012-climregrid.nc',decode_times=False)
+MIROC_3 = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/sic_OIclim_MIROC-ESM_lgm_r1i1p1_460001-469912-climregrid.nc',decode_times=False)
+MRI_3 = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/sic_OIclim_MRI-CGCM3_lgm_r1i1p1_250101-260012-climregrid.nc',decode_times=False)
 # LOVE1 = xr.open_dataset('LOVECLIM1_sic.nc')
 # LOVE1 = LOVE1.ALBQ
 # feb = LOVE1[1:1200:12]
@@ -34,12 +34,12 @@ MRI_3 = xr.open_dataset('sic_OIclim_MRI-CGCM3_lgm_r1i1p1_250101-260012-climregri
 # feb = LOVE1_sum_3.ALFEB.mean(dim='AX006')
 # jan = LOVE1_sum_3.ALJAN.mean(dim='AX005')
 # LOVE1_sum_3 = (jan + feb)/2
-LOVE1_sum_3 = xr.open_dataset('LOVE1_albq_summer.nc',decode_times=False) # check if this is loveclim1 or 2
+LOVE1_sum_3 = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/LOVE1_albq_summer.nc',decode_times=False) # check if this is loveclim1 or 2
 feb = LOVE1_sum_3.FEB.mean(dim='AX005')
 mar = LOVE1_sum_3.MAR.mean(dim='AX006')
 LOVE1_sum_3 = (mar + feb)/2
 
-LOVE1_win_3 = xr.open_dataset('V3LNAwSeaIceConcWinter.nc',decode_times=False) # check if this is loveclim1 or 2
+LOVE1_win_3 = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/V3LNAwSeaIceConcWinter.nc',decode_times=False) # check if this is loveclim1 or 2
 jul = LOVE1_win_3.ALJUL.mean(dim='AX007')
 aug2 = LOVE1_win_3.ALAUG.mean(dim='AX008')
 LOVE1_win_3 = (jul + aug2)/2
@@ -61,11 +61,11 @@ LOVE1_win_3 = (jul + aug2)/2
 #### Summer
 
 # data sets with preset variables
-CCSM4_sum_3 = xr.open_dataset('2MonthMinimum-sic-CCSM4_lgm.nc',decode_times=False)
+CCSM4_sum_3 = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/2MonthMinimum-sic-CCSM4_lgm.nc',decode_times=False)
 CCSM4_sum_3 = (CCSM4_sum_3.S1A + CCSM4_sum_3.S1B)/2
-GISS_sum_3 = xr.open_dataset('2MonthMinimum-sic-GISS_lgm.nc',decode_times=False)
+GISS_sum_3 = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/2MonthMinimum-sic-GISS_lgm.nc',decode_times=False)
 GISS_sum_3 = (GISS_sum_3.S2A + GISS_sum_3.S2B)/2
-MPI_sum_3 = xr.open_dataset('2MonthMinimum-sic-MPI_lgm.nc',decode_times=False)
+MPI_sum_3 = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/2MonthMinimum-sic-MPI_lgm.nc',decode_times=False)
 MPI_sum_3 = (MPI_sum_3.S3A + MPI_sum_3.S3B)/2
 
 
@@ -80,7 +80,7 @@ MIROC_3_sum = xr.concat([MIROC_3.sel(time=(MIROC_3.time[1])), MIROC_3.sel(time=(
 MIROC_3_sum = MIROC_3_sum.mean(dim='time')
 MRI_3_sum = xr.concat([MRI_3.sel(time=(MRI_3.time[1])), MRI_3.sel(time=(MRI_3.time[2]))], dim="time")
 MRI_3_sum = MRI_3_sum.mean(dim='time')
-LOVE2_sum_3 = xr.open_dataset('V3LNAwSOwSHWwSeaIceConcSUMMER.nc',decode_times=False)  # check if this is loveclim1 or 2
+LOVE2_sum_3 = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/V3LNAwSOwSHWwSeaIceConcSUMMER.nc',decode_times=False)  # check if this is loveclim1 or 2
 aug = LOVE2_sum_3.ALFEB.mean(dim='AX005')
 sep = LOVE2_sum_3.ALMAR.mean(dim='AX006')
 LOVE2_sum_3 = (aug + sep)/2
@@ -88,18 +88,18 @@ LOVE2_sum_3 = (aug + sep)/2
 
 
 # Multi model mean
-MMM_sum = xr.open_dataset('AnnualMinimum15%.nc',decode_times=False)
+MMM_sum = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/AnnualMinimum15%.nc',decode_times=False)
 
 #### Winter
 
 # data sets with preset variables
 # data sets with preset variables
-CCSM4_win_3 = xr.open_dataset('2MonthMaximum-sic-CCSM4_lgm.nc',decode_times=False)
+CCSM4_win_3 = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/2MonthMaximum-sic-CCSM4_lgm.nc',decode_times=False)
 CCSM4_win_3 = (CCSM4_win_3.S1A + CCSM4_win_3.S1B)/2
-GISS_win_3 = xr.open_dataset('2MonthMaximum-sic-GISS_lgm.nc',decode_times=False)
+GISS_win_3 = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/2MonthMaximum-sic-GISS_lgm.nc',decode_times=False)
 GISS_win_3 = (GISS_win_3.S2A + GISS_win_3.S2B)/2
 GISS_win_3 = GISS_win_3.isel(LAT=(GISS_win_3.LAT > -70))
-MPI_win_3 = xr.open_dataset('2MonthMaximum-sic-MPI_lgm.nc',decode_times=False)
+MPI_win_3 = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/2MonthMaximum-sic-MPI_lgm.nc',decode_times=False)
 MPI_win_3 = (MPI_win_3.S3A + MPI_win_3.S3B)/2
 
 
@@ -116,18 +116,18 @@ MIROC_3_win = MIROC_3_win.mean(dim='time')
 MRI_3_win = xr.concat([MRI_3.sel(time=(MRI_3.time[8])), MRI_3.sel(time=(MRI_3.time[9]))], dim="time")
 MRI_3_win = MRI_3_win.mean(dim='time')
 MRI_3_win = MRI_3_win.isel(lat=(MRI_3_win.lat > -70))
-LOVE2_win_3 = xr.open_dataset('V3LNAwSOwSHWwSeaIceConcWINTER.nc',decode_times=False)  # check if this is loveclim1 or 2
+LOVE2_win_3 = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/V3LNAwSOwSHWwSeaIceConcWINTER.nc',decode_times=False)  # check if this is loveclim1 or 2
 aug = LOVE2_win_3.ALAUG.mean(dim='AX005')
 sep = LOVE2_win_3.ALSEP.mean(dim='AX006')
 LOVE2_win_3 = (aug + sep)/2
 
 
 # Multi model mean winter
-MMM_win = xr.open_dataset('AnnualMaximum15%.nc',decode_times=False)
+MMM_win = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/AnnualMaximum15%.nc',decode_times=False)
 
 # load in PMIP4 data
 
-iLOVECLIM = xr.open_dataset('PMIP4seaice/cresum18250_regrid.nc',decode_times=False)
+iLOVECLIM = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/PMIP4seaice/cresum18250_regrid.nc',decode_times=False)
 LOVEsic = iLOVECLIM.albq
 feb = LOVEsic[1:2400:12]
 mar = LOVEsic[2:2400:12]
@@ -143,12 +143,12 @@ LOVEsummer = LOVEsummer * 100
 LOVEwinter = LOVEwinter * 100
 
 
-AWI = xr.open_dataset('PMIP4seaice/AWI_PMIP4_siconca_regrid.nc',decode_times=False)
-MIROC = xr.open_dataset('PMIP4seaice/MIROC_PMIP4_siconc_regrid.nc',decode_times=False)
-MPI = xr.open_dataset('PMIP4seaice/MPIPMIP4_siconc_regrid.nc',decode_times=False)
-CESM12 = xr.open_dataset('PMIP4seaice/b.e12.B1850C5.f19_g16.i21ka.03.pop.h.vars.08010900.climo_regrid.nc',decode_times=False)
-CCSM4UoT = xr.open_dataset('PMIP4seaice/siconc_SImon_UofT-CCSM4_lgm_r1i1p1f1_gn_110101-120012_regrid.nc',decode_times=False)
-IPSL = xr.open_dataset('PMIP4seaice/IPSLCM5A2_LGM_regrid.nc',decode_times=False)
+AWI = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/PMIP4seaice/AWI_PMIP4_siconca_regrid.nc',decode_times=False)
+MIROC = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/PMIP4seaice/MIROC_PMIP4_siconc_regrid.nc',decode_times=False)
+MPI = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/PMIP4seaice/MPIPMIP4_siconc_regrid.nc',decode_times=False)
+CESM12 = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/PMIP4seaice/b.e12.B1850C5.f19_g16.i21ka.03.pop.h.vars.08010900.climo_regrid.nc',decode_times=False)
+CCSM4UoT = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/PMIP4seaice/siconc_SImon_UofT-CCSM4_lgm_r1i1p1f1_gn_110101-120012_regrid.nc',decode_times=False)
+IPSL = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/PMIP4seaice/IPSLCM5A2_LGM_regrid.nc',decode_times=False)
 
 
 # datasets that need to be averaged over 2 month period
@@ -518,4 +518,4 @@ ax[15].axis('off')
 # ax[0].legend(handles=[CNRM,GISS,IPSL,MIROC,MPI,MRI,FGOALS,CCSM4UoT,AWI,CESM,iLOVECLIM,LOVE1,LOVE2],frameon=False,ncol=2)
 # ax[5].legend(handles=[red,blue,black],frameon=False)
 plt.show()
-#plt.savefig('Figure1.eps')
+#plt.savefig('Figures/Figure1.eps')
