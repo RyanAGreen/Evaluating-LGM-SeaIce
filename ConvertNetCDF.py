@@ -336,10 +336,10 @@ STD_MMM_winter_PMIP4 = STD2
 MMM_winter_PMIP4_STD = STD3
 
 MMM_winter_PMIP4 = MMM_winter_PMIP4.to_dataset(name='sic')
-MMM_winter_PMIP4.to_netcdf("PMIP4_winter_MMM.nc")
+MMM_winter_PMIP4.to_netcdf("MMM_STD/PMIP4_winter_MMM.nc")
 
 STD_MMM_winter_PMIP4 = STD_MMM_winter_PMIP4.to_dataset(name='sic')
-STD_MMM_winter_PMIP4.to_netcdf("PMIP4_winter_STD_MMM.nc")
+STD_MMM_winter_PMIP4.to_netcdf("MMM_STD/PMIP4_winter_STD_MMM.nc")
 
 MMM_winter_PMIP4_STD = MMM_winter_PMIP4_STD.to_dataset(name='sic')
-MMM_winter_PMIP4_STD.to_netcdf("PMIP4_winter_MMM_STD.nc")
+MMM_winter_PMIP4_STD.to_netcdf("MMM_STD/PMIP4_winter_MMM_STD.nc")
