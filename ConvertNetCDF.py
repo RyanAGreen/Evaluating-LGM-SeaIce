@@ -185,23 +185,22 @@ var5=(MMM_sum.FGOALS-MMM_sum_mean)**2
 var6=(MMM_sum.IPSL-MMM_sum_mean)**2
 var7=(MMM_sum.MIROC-MMM_sum_mean)**2
 var8=(MMM_sum.MRI-MMM_sum_mean)**2
-STD=(var1+var2+var3+var4+var5+var6+var7+var8)/8
-STD1=STD**0.5
-STD2=(MMM_sum_mean+STD1)
-STD3=(MMM_sum_mean-STD1)
+STD=((var1+var2+var3+var4+var5+var6+var7+var8)/8)**0.5
+STD2=(MMM_sum_mean+STD)
+STD3=(MMM_sum_mean-STD)
 
 MMM_summer_PMIP3 = MMM_sum_mean
 STD_MMM_summer_PMIP3 = STD2
 MMM_summer_PMIP3_STD = STD3
 
 MMM_summer_PMIP3 = MMM_summer_PMIP3.to_dataset(name='sic')
-MMM_summer_PMIP3.to_netcdf("PMIP3_summer_MMM.nc")
+MMM_summer_PMIP3.to_netcdf("MMM_STD/PMIP3_summer_MMM.nc")
 
 STD_MMM_summer_PMIP3 = STD_MMM_summer_PMIP3.to_dataset(name='sic')
-STD_MMM_summer_PMIP3.to_netcdf("PMIP3_summer_STD_MMM.nc")
+STD_MMM_summer_PMIP3.to_netcdf("MMM_STD/PMIP3_summer_STD_MMM.nc")
 
 MMM_summer_PMIP3_STD = MMM_summer_PMIP3_STD.to_dataset(name='sic')
-MMM_summer_PMIP3_STD.to_netcdf("PMIP3_summer_MMM_STD.nc")
+MMM_summer_PMIP3_STD.to_netcdf("MMM_STD/PMIP3_summer_MMM_STD.nc")
 
 # austral winter
 MMM_CCSM4 = (MMM_win.CCSM4R2 + MMM_win.CCSM4R1)/2
@@ -231,23 +230,22 @@ var5=(MMM_win.FGOALS-MMM_win_mean)**2
 var6=(MMM_win.IPSL-MMM_win_mean)**2
 var7=(MMM_win.MIROC-MMM_win_mean)**2
 var8=(MMM_win.MRI-MMM_win_mean)**2
-STD7=(var1+var2+var3+var4+var5+var6+var7+var8)/8
-STD6=STD7**0.5
-STD4=(MMM_win_mean+STD6)
-STD5=(MMM_win_mean-STD6)
+STD=((var1+var2+var3+var4+var5+var6+var7+var8)/8)**0.5
+STD4=(MMM_win_mean+STD)
+STD5=(MMM_win_mean-STD)
 
 MMM_winter_PMIP3 = MMM_win_mean
 STD_MMM_winter_PMIP3 = STD4
 MMM_winter_PMIP3_STD = STD5
 
 MMM_winter_PMIP3 = MMM_winter_PMIP3.to_dataset(name='sic')
-MMM_winter_PMIP3.to_netcdf("PMIP3_winter_MMM.nc")
+MMM_winter_PMIP3.to_netcdf("MMM_STD/PMIP3_winter_MMM.nc")
 
 STD_MMM_winter_PMIP3 = STD_MMM_winter_PMIP3.to_dataset(name='sic')
-STD_MMM_winter_PMIP3.to_netcdf("PMIP3_winter_STD_MMM.nc")
+STD_MMM_winter_PMIP3.to_netcdf("MMM_STD/PMIP3_winter_STD_MMM.nc")
 
 MMM_winter_PMIP3_STD = MMM_winter_PMIP3_STD.to_dataset(name='sic')
-MMM_winter_PMIP3_STD.to_netcdf("PMIP3_winter_MMM_STD.nc")
+MMM_winter_PMIP3_STD.to_netcdf("MMM_STD/PMIP3_winter_MMM_STD.nc")
 
 ####### LOVECLIM sensitivity  #####
 
@@ -256,44 +254,42 @@ MMM_winter_PMIP3_STD.to_netcdf("PMIP3_winter_MMM_STD.nc")
 MMM = (MMM_LOVE2_sum_3 + MMM_LOVE1_sum_3)/2
 var1 = (MMM_LOVE1_sum_3 - MMM)**2
 var2 = (MMM_LOVE2_sum_3 - MMM)**2
-STD = (var1+var2)/2
-STD = STD**0.5
-STD1 = (MMM+STD1)
-STD2 = (MMM-STD2)
+STD = ((var1+var2)/2)**0.5
+STD1 = (MMM+STD)
+STD2 = (MMM-STD)
 
 MMM_summer_LOVE = MMM
 STD_MMM_summer_LOVE = STD1
 MMM_summer_LOVE_STD = STD2
 
 MMM_summer_LOVE = MMM_summer_LOVE.to_dataset(name='sic')
-MMM_summer_LOVE.to_netcdf("LOVE_summer_MMM.nc")
+MMM_summer_LOVE.to_netcdf("MMM_STD/LOVE_summer_MMM.nc")
 
 STD_MMM_summer_LOVE = STD_MMM_summer_LOVE.to_dataset(name='sic')
-STD_MMM_summer_LOVE.to_netcdf("LOVE_summer_STD_MMM.nc")
+STD_MMM_summer_LOVE.to_netcdf("MMM_STD/LOVE_summer_STD_MMM.nc")
 
 MMM_summer_LOVE_STD = MMM_summer_LOVE_STD.to_dataset(name='sic')
-MMM_summer_LOVE_STD.to_netcdf("LOVE_summer_MMM_STD.nc")
+MMM_summer_LOVE_STD.to_netcdf("MMM_STD/LOVE_summer_MMM_STD.nc")
 
 MMM = (MMM_LOVE1_win_3 + MMM_LOVE2_win_3 )/2
 var1 = (MMM_LOVE1_win_3 - MMM)**2
 var2 = (MMM_LOVE2_win_3 - MMM)**2
-STD = (var1+var2)/2
-STD = STD**0.5
-STD1 = (MMM+STD1)
-STD2 = (MMM-STD2)
+STD = ((var1+var2)/2)**0.5
+STD1 = (MMM+STD)
+STD2 = (MMM-STD)
 
 MMM_winter_LOVE = MMM
 STD_MMM_winter_LOVE = STD1
 MMM_winter_LOVE_STD = STD2
 
 MMM_winter_LOVE = MMM_winter_LOVE.to_dataset(name='sic')
-MMM_winter_LOVE.to_netcdf("LOVE_winter_MMM.nc")
+MMM_winter_LOVE.to_netcdf("MMM_STD/LOVE_winter_MMM.nc")
 
 STD_MMM_winter_LOVE = STD_MMM_winter_LOVE.to_dataset(name='sic')
-STD_MMM_winter_LOVE.to_netcdf("LOVE_winter_STD_MMM.nc")
+STD_MMM_winter_LOVE.to_netcdf("MMM_STD/LOVE_winter_STD_MMM.nc")
 
 MMM_winter_LOVE_STD = MMM_winter_LOVE_STD.to_dataset(name='sic')
-MMM_winter_LOVE_STD.to_netcdf("LOVE_winter_MMM_STD.nc")
+MMM_winter_LOVE_STD.to_netcdf("MMM_STD/LOVE_winter_MMM_STD.nc")
 
 #### PMIP4 ########
 
@@ -305,23 +301,22 @@ var4=(MPI_summer.siconc-MMM_summer_mean)**2
 var5=(MIROC_summer.siconc-MMM_summer_mean)**2
 var6=(IPSL_summer.fract_sic*100-MMM_summer_mean)**2
 var7=(LOVEsummer-MMM_summer_mean)**2
-STD=(var1+var2+var3+var4+var5+var6+var7)/7
-STD1=STD**0.5
-STD2=(MMM_summer_mean+STD1)
-STD3=(MMM_summer_mean-STD1)
+STD=((var1+var2+var3+var4+var5+var6+var7)/7)**0.5
+STD2=(MMM_summer_mean+STD)
+STD3=(MMM_summer_mean-STD)
 
 MMM_summer_PMIP4 = MMM_summer_mean
 STD_MMM_summer_PMIP4 = STD2
 MMM_summer_PMIP4_STD = STD3
 
 MMM_summer_PMIP4 = MMM_summer_PMIP4.to_dataset(name='sic')
-MMM_summer_PMIP4.to_netcdf("PMIP4_summer_MMM.nc")
+MMM_summer_PMIP4.to_netcdf("MMM_STD/PMIP4_summer_MMM.nc")
 
 STD_MMM_summer_PMIP4 = STD_MMM_summer_PMIP4.to_dataset(name='sic')
-STD_MMM_summer_PMIP4.to_netcdf("PMIP4_summer_STD_MMM.nc")
+STD_MMM_summer_PMIP4.to_netcdf("MMM_STD/PMIP4_summer_STD_MMM.nc")
 
 MMM_summer_PMIP4_STD = MMM_summer_PMIP4_STD.to_dataset(name='sic')
-MMM_summer_PMIP4_STD.to_netcdf("PMIP4_summer_MMM_STD.nc")
+MMM_summer_PMIP4_STD.to_netcdf("MMM_STD/PMIP4_summer_MMM_STD.nc")
 
 
 MMM_winter_mean = (CCSM4UoT_winter.siconc+CESM12_winter.IFRAC*100+LOVEwinter+AWI_winter.siconca+MPI_winter.siconc+MIROC_winter.siconc+IPSL_winter.fract_sic*100)/7
@@ -332,10 +327,9 @@ var4=(MPI_winter.siconc-MMM_winter_mean)**2
 var5=(MIROC_winter.siconc-MMM_winter_mean)**2
 var6=(IPSL_winter.fract_sic*100-MMM_winter_mean)**2
 var7=(LOVEwinter-MMM_winter_mean)**2
-STD=(var1+var2+var3+var4+var5+var6+var7)/7
-STD1=STD**0.5
-STD2=(MMM_winter_mean+STD1)
-STD3=(MMM_winter_mean-STD1)
+STD=((var1+var2+var3+var4+var5+var6+var7)/7)**0.5
+STD2=(MMM_winter_mean+STD)
+STD3=(MMM_winter_mean-STD)
 
 MMM_winter_PMIP4 = MMM_winter_mean
 STD_MMM_winter_PMIP4 = STD2

@@ -317,10 +317,9 @@ var7=(MMM_sum.MIROC-MMM_sum_mean)**2
 var8=(MMM_sum.MRI-MMM_sum_mean)**2
 # var9=(MMM_LOVE1_sum_3 -MMM_sum_mean)**2
 # var10=(MMM_LOVE2_sum_3 -MMM_sum_mean)**2
-STD=(var1+var2+var3+var4+var5+var6+var7+var8)/8
-STD1=STD**0.5
-STD2=(MMM_sum_mean+STD1)
-STD3=(MMM_sum_mean-STD1)
+STD=((var1+var2+var3+var4+var5+var6+var7+var8)/8)**0.5
+STD2=(MMM_sum_mean+STD)
+STD3=(MMM_sum_mean-STD)
 
 # plotting
 ax[4].contour(MMM_sum_mean.LON,MMM_sum_mean.LAT,MMM_sum_mean,colors=['black'],levels=[15], transform=ccrs.PlateCarree(),linewidths=3)
@@ -369,10 +368,9 @@ var7=(MMM_win.MIROC-MMM_win_mean)**2
 var8=(MMM_win.MRI-MMM_win_mean)**2
 # var9=(MMM_LOVE1_win_3 -MMM_win_mean)**2
 # var10=(MMM_LOVE2_win_3 -MMM_win_mean)**2
-STD7=(var1+var2+var3+var4+var5+var6+var7+var8)/8
-STD6=STD7**0.5
-STD4=(MMM_win_mean+STD6)
-STD5=(MMM_win_mean-STD6)
+STD=((var1+var2+var3+var4+var5+var6+var7+var8)/8)**0.5
+STD4=(MMM_win_mean+STD)
+STD5=(MMM_win_mean-STD)
 
 # plotting
 ax[5].contour(MMM_win_mean.LON,MMM_win_mean.LAT,MMM_win_mean,colors=['black'],levels=[15], transform=ccrs.PlateCarree(),linewidths=3)
@@ -390,10 +388,9 @@ ax[8].contour(LOVE2_sum_3.LON,LOVE2_sum_3.LAT,LOVE2_sum_3,colors=['#F7DC6F'],lev
 MMM = (MMM_LOVE2_sum_3 + MMM_LOVE1_sum_3)/2
 var1 = (MMM_LOVE1_sum_3 - MMM)**2
 var2 = (MMM_LOVE2_sum_3 - MMM)**2
-STD = (var1+var2)/2
-STD = STD**0.5
-STD1 = (MMM+STD1)
-STD2 = (MMM-STD2)
+STD = ((var1+var2)/2)**0.5
+STD1 = (MMM+STD)
+STD2 = (MMM-STD)
 
 ax[12].contour(MMM.LON,MMM.LAT,MMM,colors=['black'],levels=[15], transform=ccrs.PlateCarree(),linewidths=3)
 ax[12].contour(STD1.LON,STD1.LAT,STD1,levels=[15],colors=['black'], transform=ccrs.PlateCarree())
@@ -408,10 +405,9 @@ ax[9].contour(LOVE2_win_3.LON,LOVE2_win_3.LAT,LOVE2_win_3,colors=['#F7DC6F'],lev
 MMM = (MMM_LOVE1_win_3 + MMM_LOVE2_win_3 )/2
 var1 = (MMM_LOVE1_win_3 - MMM)**2
 var2 = (MMM_LOVE2_win_3 - MMM)**2
-STD = (var1+var2)/2
-STD = STD**0.5
-STD1 = (MMM+STD1)
-STD2 = (MMM-STD2)
+STD = ((var1+var2)/2)**0.5
+STD1 = (MMM+STD)
+STD2 = (MMM-STD)
 
 ax[13].contour(MMM.LON,MMM.LAT,MMM,colors=['black'],levels=[15], transform=ccrs.PlateCarree(),linewidths=3)
 ax[13].contour(STD1.LON,STD1.LAT,STD1,levels=[15],colors=['black'], transform=ccrs.PlateCarree())
@@ -435,10 +431,9 @@ var4=(MPI_summer.siconc-MMM_summer_mean)**2
 var5=(MIROC_summer.siconc-MMM_summer_mean)**2
 var6=(IPSL_summer.fract_sic*100-MMM_summer_mean)**2
 var7=(LOVEsummer-MMM_summer_mean)**2
-STD=(var1+var2+var3+var4+var5+var6+var7)/7
-STD1=STD**0.5
-STD2=(MMM_summer_mean+STD1)
-STD3=(MMM_summer_mean-STD1)
+STD=((var1+var2+var3+var4+var5+var6+var7)/7)**0.5
+STD2=(MMM_summer_mean+STD)
+STD3=(MMM_summer_mean-STD)
 
 ax[6].contour(MMM_summer_mean.lon,MMM_summer_mean.lat,MMM_summer_mean,colors=['black'],levels=[15], transform=ccrs.PlateCarree(),linewidths=3)
 ax[6].contour(STD2.lon,STD2.lat,STD2,levels=[15],colors=['black'], transform=ccrs.PlateCarree())
@@ -462,10 +457,9 @@ var4=(MPI_winter.siconc-MMM_winter_mean)**2
 var5=(MIROC_winter.siconc-MMM_winter_mean)**2
 var6=(IPSL_winter.fract_sic*100-MMM_winter_mean)**2
 var7=(LOVEwinter-MMM_winter_mean)**2
-STD=(var1+var2+var3+var4+var5+var6+var7)/7
-STD1=STD**0.5
-STD2=(MMM_winter_mean+STD1)
-STD3=(MMM_winter_mean-STD1)
+STD=((var1+var2+var3+var4+var5+var6+var7)/7)**0.5
+STD2=(MMM_winter_mean+STD)
+STD3=(MMM_winter_mean-STD)
 
 ax[7].contour(MMM_winter_mean.lon,MMM_winter_mean.lat,MMM_winter_mean,colors=['black'],levels=[15], transform=ccrs.PlateCarree(),linewidths=3)
 ax[7].contour(STD2.lon,STD2.lat,STD2,levels=[15],colors=['black'], transform=ccrs.PlateCarree())
