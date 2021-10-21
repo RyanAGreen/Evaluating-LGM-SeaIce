@@ -30,7 +30,7 @@ LOVE_sie = [-59.5,-58.5]
 # PMIP4_sie = [-75.5,-71.5,-65.5,-62.5,-59.5,-57.5,-53.5]
 # LOVE_sie = [-59.5,-58.5]
 
-PMIP3_colors = ['#ff7f0e','#e377c2','#1f77b4','#bcbd22','#9467bd','#2ca02c','#17becf','orangered']
+PMIP3_colors = ['#ff7f0e','#e377c2','#1f77b4','#bcbd22','#9467bd','#2ca02c','#17becf','black']
 PMIP3_colors.reverse()
 PMIP4_colors = ['#ff7f0e','#8c564b','#F7DC6F','#B8255F','#bcbd22','#2ca02c','#9467bd']
 PMIP4_colors.reverse()
@@ -43,7 +43,7 @@ PMIP3names = ['CNRM','GISS-E2-R','IPSL-CM5A-LR','MIROC-ESM-P','MPI-ESM-P','MRI-C
 PMIP4names= ['MIROC-ES2L','IPSL-CM5A2','MPI-ESM1-2','AWI-ESM-1','LOVECLIM','CESM1.2','UoT-CCSM4']
 LOVEnames = ['weakNA','weakNA_AB']
 # colors are set from most sea ice to least
-PMIP3_colors = ['#ff7f0e','#e377c2','#1f77b4','#bcbd22','#9467bd','#2ca02c','#17becf','orangered']
+PMIP3_colors = ['#ff7f0e','#e377c2','#1f77b4','#bcbd22','#9467bd','#2ca02c','#17becf','black']
 PMIP3_colors.reverse()
 PMIP4_colors = ['#ff7f0e','#8c564b','#F7DC6F','#B8255F','#bcbd22','#2ca02c','#9467bd']
 PMIP4_colors.reverse()
