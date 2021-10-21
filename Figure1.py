@@ -18,22 +18,7 @@ FGOALS_3 = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/sic_OIclim_FGOALS-g2_lgm_
 IPSL_3 = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/sic_OIclim_IPSL-CM5A-LR_lgm_r1i1p1_260101-280012-climregrid.nc',decode_times=False)
 MIROC_3 = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/sic_OIclim_MIROC-ESM_lgm_r1i1p1_460001-469912-climregrid.nc',decode_times=False)
 MRI_3 = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/sic_OIclim_MRI-CGCM3_lgm_r1i1p1_250101-260012-climregrid.nc',decode_times=False)
-# LOVE1 = xr.open_dataset('LOVECLIM1_sic.nc')
-# LOVE1 = LOVE1.ALBQ
-# feb = LOVE1[1:1200:12]
-# mar = LOVE1[2:1200:12]
-# # jul = LOVE1[6:1200:12]
-# # aug = LOVE1[7:1200:12]
-# mar = mar.mean(dim='TIME')
-# feb = feb.mean(dim='TIME')
-# jul = jul.mean(dim='TIME')
-# aug = aug.mean(dim='TIME')
-# LOVE1_sum_3 = (mar+feb)/2
-# LOVE1_win_3 = (jul + aug)/2
-# LOVE1_sum_3 = xr.open_dataset('V3LNAwSeaIceConcSUMMER.nc') # check if this is loveclim1 or 2
-# feb = LOVE1_sum_3.ALFEB.mean(dim='AX006')
-# jan = LOVE1_sum_3.ALJAN.mean(dim='AX005')
-# LOVE1_sum_3 = (jan + feb)/2
+
 LOVE1_sum_3 = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/LOVE1_albq_summer.nc',decode_times=False) # check if this is loveclim1 or 2
 feb = LOVE1_sum_3.FEB.mean(dim='AX005')
 mar = LOVE1_sum_3.MAR.mean(dim='AX006')
@@ -43,20 +28,6 @@ LOVE1_win_3 = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/V3LNAwSeaIceConcWinter
 jul = LOVE1_win_3.ALJUL.mean(dim='AX007')
 aug2 = LOVE1_win_3.ALAUG.mean(dim='AX008')
 LOVE1_win_3 = (jul + aug2)/2
-
-# LOVE2 = xr.open_dataset('LOVECLIM2_sic.nc')
-# LOVE2 = LOVE2.ALBQ
-# feb = LOVE2[1:1200:12]
-# mar = LOVE2[2:1200:12]
-# sep = LOVE2[8:1200:12]
-# aug = LOVE2[7:1200:12]
-# mar = mar.mean(dim='TIME')
-# feb = feb.mean(dim='TIME')
-# sep = sep.mean(dim='TIME')
-# aug = aug.mean(dim='TIME')
-# LOVE2_sum_3 = (mar+feb)/2
-# LOVE2_win_3 = (sep + aug)/2
-
 
 #### Summer
 
@@ -93,7 +64,7 @@ MMM_sum = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/AnnualMinimum15%.nc',decod
 #### Winter
 
 # data sets with preset variables
-# data sets with preset variables
+
 CCSM4_win_3 = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/2MonthMaximum-sic-CCSM4_lgm.nc',decode_times=False)
 CCSM4_win_3 = (CCSM4_win_3.S1A + CCSM4_win_3.S1B)/2
 GISS_win_3 = xr.open_dataset('~/Desktop/UNSW/PMIP4Models/2MonthMaximum-sic-GISS_lgm.nc',decode_times=False)
@@ -322,7 +293,7 @@ STD2=(MMM_sum_mean+STD)
 STD3=(MMM_sum_mean-STD)
 
 # plotting
-ax[4].contour(MMM_sum_mean.LON,MMM_sum_mean.LAT,MMM_sum_mean,colors=['black'],levels=[15], transform=ccrs.PlateCarree(),linewidths=3)
+ax[4].contour(MMM_sum_mean.LON,MMM_sum_mean.LAT,MMM_sum_mean,colors=['black'],levels=[15], transform=ccrs.PlateCarree(),linewidths=2.5)
 ax[4].contour(STD2.LON,STD2.LAT,STD2,levels=[15],colors=['black'], transform=ccrs.PlateCarree())
 ax[4].contour(STD3.LON,STD3.LAT,STD3,levels=[15],colors=['black'], transform=ccrs.PlateCarree())
 
@@ -373,7 +344,7 @@ STD4=(MMM_win_mean+STD)
 STD5=(MMM_win_mean-STD)
 
 # plotting
-ax[5].contour(MMM_win_mean.LON,MMM_win_mean.LAT,MMM_win_mean,colors=['black'],levels=[15], transform=ccrs.PlateCarree(),linewidths=3)
+ax[5].contour(MMM_win_mean.LON,MMM_win_mean.LAT,MMM_win_mean,colors=['black'],levels=[15], transform=ccrs.PlateCarree(),linewidths=2.5)
 ax[5].contour(STD4.LON,STD4.LAT,STD4,levels=[15],colors=['black'], transform=ccrs.PlateCarree())
 ax[5].contour(STD5.LON,STD5.LAT,STD5,levels=[15],colors=['black'], transform=ccrs.PlateCarree())
 
@@ -392,7 +363,7 @@ STD = ((var1+var2)/2)**0.5
 STD1 = (MMM+STD)
 STD2 = (MMM-STD)
 
-ax[12].contour(MMM.LON,MMM.LAT,MMM,colors=['black'],levels=[15], transform=ccrs.PlateCarree(),linewidths=3)
+ax[12].contour(MMM.LON,MMM.LAT,MMM,colors=['black'],levels=[15], transform=ccrs.PlateCarree(),linewidths=2.5)
 ax[12].contour(STD1.LON,STD1.LAT,STD1,levels=[15],colors=['black'], transform=ccrs.PlateCarree())
 ax[12].contour(STD1.LON,STD1.LAT,STD1,levels=[15],colors=['black'], transform=ccrs.PlateCarree())
 
@@ -409,7 +380,7 @@ STD = ((var1+var2)/2)**0.5
 STD1 = (MMM+STD)
 STD2 = (MMM-STD)
 
-ax[13].contour(MMM.LON,MMM.LAT,MMM,colors=['black'],levels=[15], transform=ccrs.PlateCarree(),linewidths=3)
+ax[13].contour(MMM.LON,MMM.LAT,MMM,colors=['black'],levels=[15], transform=ccrs.PlateCarree(),linewidths=2.5)
 ax[13].contour(STD1.LON,STD1.LAT,STD1,levels=[15],colors=['black'], transform=ccrs.PlateCarree())
 ax[13].contour(STD1.LON,STD1.LAT,STD1,levels=[15],colors=['black'], transform=ccrs.PlateCarree())
 
@@ -435,7 +406,7 @@ STD=((var1+var2+var3+var4+var5+var6+var7)/7)**0.5
 STD2=(MMM_summer_mean+STD)
 STD3=(MMM_summer_mean-STD)
 
-ax[6].contour(MMM_summer_mean.lon,MMM_summer_mean.lat,MMM_summer_mean,colors=['black'],levels=[15], transform=ccrs.PlateCarree(),linewidths=3)
+ax[6].contour(MMM_summer_mean.lon,MMM_summer_mean.lat,MMM_summer_mean,colors=['black'],levels=[15], transform=ccrs.PlateCarree(),linewidths=2.5)
 ax[6].contour(STD2.lon,STD2.lat,STD2,levels=[15],colors=['black'], transform=ccrs.PlateCarree())
 ax[6].contour(STD3.lon,STD3.lat,STD3,levels=[15],colors=['black'], transform=ccrs.PlateCarree())
 
@@ -461,7 +432,7 @@ STD=((var1+var2+var3+var4+var5+var6+var7)/7)**0.5
 STD2=(MMM_winter_mean+STD)
 STD3=(MMM_winter_mean-STD)
 
-ax[7].contour(MMM_winter_mean.lon,MMM_winter_mean.lat,MMM_winter_mean,colors=['black'],levels=[15], transform=ccrs.PlateCarree(),linewidths=3)
+ax[7].contour(MMM_winter_mean.lon,MMM_winter_mean.lat,MMM_winter_mean,colors=['black'],levels=[15], transform=ccrs.PlateCarree(),linewidths=2.5)
 ax[7].contour(STD2.lon,STD2.lat,STD2,levels=[15],colors=['black'], transform=ccrs.PlateCarree())
 ax[7].contour(STD3.lon,STD3.lat,STD3,levels=[15],colors=['black'], transform=ccrs.PlateCarree())
 
@@ -475,7 +446,7 @@ IPSL = mlines.Line2D([], [], color='#2ca02c', linestyle ='-', label = 'IPSL-CM5A
 CCSM4UoT = mlines.Line2D([], [], color='#ff7f0e', linestyle ='-', label = 'UoT-CCSM4')
 CESM = mlines.Line2D([], [], color='#8c564b', linestyle ='-', label = 'CESM1.2')
 iLOVECLIM = mlines.Line2D([], [], color='#F7DC6F', linestyle ='-', label = 'LOVECLIM')
-ax[4].legend(handles=[MIROC,IPSL,MPI,AWI,iLOVECLIM,CESM,CCSM4UoT],frameon=False,title='PMIP4 models')
+ax[11].legend(handles=[MIROC,IPSL,MPI,AWI,iLOVECLIM,CESM,CCSM4UoT],frameon=False,title='PMIP4 models')
 
 #PMIP3 Proxy artist
 MIROC = mlines.Line2D([], [], color='#9467bd', linestyle ='-',label = 'MIROC-ESM-P')
@@ -486,21 +457,25 @@ CNRM = mlines.Line2D([], [], color='black', linestyle ='-', label = 'CNRM')
 MPI = mlines.Line2D([], [], color='#bcbd22', linestyle ='-', label = 'MPI-ESM-P')
 FGOALS= mlines.Line2D([], [], color='#e377c2', linestyle ='-', label = 'FGOALS-G2')
 MRI = mlines.Line2D([], [], color='#1f77b4', linestyle ='-', label = 'MRI-CGCM3')
-ax[0].legend(handles=[CNRM,GISS,IPSL,MIROC,MPI,MRI,FGOALS,CCSM4],frameon=False,title='PMIP3 models')
+#ax[11].legend(handles=[CNRM,GISS,IPSL,MIROC,MPI,MRI,FGOALS,CCSM4],bbox_to_anchor=(1.04,1), loc="upper left",frameon=False,title='PMIP3 models')
+ax[10].legend(handles=[CNRM,GISS,IPSL,MIROC,MPI,MRI,FGOALS,CCSM4],frameon=False,title='PMIP3 models')
 
+# LOVE proxy artists
 LOVE1 = mlines.Line2D([], [], color='#F7DC6F', linestyle ='dotted',label = 'weakNA')
 LOVE2 = mlines.Line2D([], [], color='#F7DC6F', linestyle ='dashdot',label = 'weakNA_AB')
-ax[6].legend(handles=[LOVE1,LOVE2],frameon=False,title='LOVECLIM sensitivity runs')
+ax[14].legend(handles=[LOVE1,LOVE2],frameon=False,title='LOVECLIM sensitivity runs')
+
+# MMM proxy artists
+MMM = mlines.Line2D([], [], color='black', linewidth=2.5, linestyle ='-', label = 'Multi-model mean')
+STD = mlines.Line2D([], [], color='black', linestyle ='-', label = 'Standard deviation')
+ax[13].legend(handles=[MMM,STD],bbox_to_anchor=(1.5,0.5), loc="center left",borderaxespad=1,frameon=False,title='Multi-model mean')
 
 # Observational data proxy artist
 red = mlines.Line2D([], [], color='red', marker='o', linestyle='None',markersize=4, label='Absence of sea ice')
 blue = mlines.Line2D([], [], color='blue', marker='o', linestyle='None',markersize=4, label='Presence of sea ice')
 black = mlines.Line2D([], [], color='black', marker='o', linestyle='None',markersize=4, label='Possible presence of sea ice')
-Atlantic = mlines.Line2D([], [], color='white', marker='o', linestyle='None',markersize=4, label='Atlantic Sector')
-Pacific = mlines.Line2D([], [], color='white', marker='o', linestyle='None',markersize=4, label='Pacific Sector')
-Indian = mlines.Line2D([], [], color='white', marker='o', linestyle='None',markersize=4, label='Indian Sector')
-#proxy = mlines.Line2D([], [], color='gray', linestyle ='--', label = 'Likely sea-ice edge from proxy data')
-ax[8].legend(handles=[red,blue,black],frameon=False,title='Proxy data')
+#ax[15].legend(handles=[red,blue,black],bbox_to_anchor=(1.04,1), loc="upper left",frameon=False,title='Proxy data')
+ax[15].legend(handles=[red,blue,black],frameon=False,title='Proxy data')
 plt.subplots_adjust(hspace=0.09,wspace=0.07)
 
 # all in one legend
@@ -511,5 +486,5 @@ ax[14].axis('off')
 ax[15].axis('off')
 # ax[0].legend(handles=[CNRM,GISS,IPSL,MIROC,MPI,MRI,FGOALS,CCSM4UoT,AWI,CESM,iLOVECLIM,LOVE1,LOVE2],frameon=False,ncol=2)
 # ax[5].legend(handles=[red,blue,black],frameon=False)
-plt.show()
-#plt.savefig('Figures/Figure1.eps')
+#plt.show()
+plt.savefig('Figures/Figure1.eps')
